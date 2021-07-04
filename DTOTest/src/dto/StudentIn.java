@@ -1,11 +1,18 @@
 package DTOTest.src.dto;
 
-import DTOTest.src.main.Main;
-
-public class Student {
+public class StudentIn {
     private String name;
     private String grade;
     private int score;
+
+    public StudentIn() {
+    }
+
+    public StudentIn(String name, String grade, int score) {
+        this.name = name;
+        this.grade = grade;
+        this.score = score;
+    }
 
     public void setName(String name) {
         this.name = name;
