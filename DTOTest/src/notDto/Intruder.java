@@ -1,4 +1,4 @@
-package DTOTest.notDto;
+package DTOTest.src.notDto;
 
 /**
  * Intruder

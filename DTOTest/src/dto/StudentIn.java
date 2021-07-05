@@ -5,7 +5,7 @@ public class StudentIn {
     private String grade;
     private int score;
 
-    public StudentIn() {
+    public StudentIn(StudentIn studentIn) {
     }
 
     public StudentIn(String name, String grade, int score) {
