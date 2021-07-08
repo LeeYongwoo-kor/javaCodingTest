@@ -6,6 +6,7 @@ public class Student {
     private String name;
     private String grade;
     private int score;
+    private Long sumScore;
 
     public void setName(String name) {
         this.name = name;
@@ -29,5 +30,13 @@ public class Student {
 
     public int getScore() {
         return score;
+    }
+
+    public void setSumScore(Long sumScore) {
+        this.sumScore = sumScore;
+    }
+
+    public Long getSumScore() {
+        return sumScore;
     }
 }
