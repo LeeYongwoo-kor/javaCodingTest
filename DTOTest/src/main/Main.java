@@ -45,26 +45,18 @@ public class Main {
         intruder = (Intruder) getDtoValue(intruder);
     }
 
-    public static Object getDtoValue(Object object) {
+    public static <T> T getDtoValue(T obj) {
         try {
-            if (!object.getClass().getPackageName().equals(BEAN_PACKAGE_NAME)) {
-                throw new IllegalAccessException();
-            }
-            Field[] fields = object.getClass().getDeclaredFields();
+            Field[] fields = obj.getClass().getDeclaredFields();
             for (Field field : fields) {
                 field.setAccessible(true);
-                if (field.get(object) instanceof String) {
-                    String value = ((String) field.get(object)).replaceAll("\\s", "");
-                    field.set(object, value);
+                if (field.get(obj) instanceof String) {
+                    String value = ((String) field.get(obj)).replaceAll("\\s", "");
+                    field.set(obj, value);
                 }
             }
-        } catch (IllegalArgumentException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+        } catch (Exception e) {
         }
-        return object;
+        return obj;
     }
 }

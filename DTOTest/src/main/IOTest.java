@@ -1,7 +1,10 @@
 package DTOTest.src.main;
 
-import DTOTest.src.dto.Homeless;
-import DTOTest.src.dto.Student;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.HashMap;
+
+import DTOTest.src.dto.Giants;
 import DTOTest.src.dto.StudentIn;
 import DTOTest.src.dto.StudentOut;
 
@@ -10,21 +13,20 @@ import DTOTest.src.dto.StudentOut;
  */
 public class IOTest {
     public static void main(String[] args) {
-        run();
-    }
+        Giants giants = new Giants();
 
-    public static void run() {
-        StudentIn studentIn = new StudentIn();
+        String player = "LEE DAE HO";
+        String a = "1";
 
-        studentIn.setName("fuck");
-        studentIn.setGrade("A");
-        studentIn.setScore(100);
-
-        StudentOut studentOut = new StudentOut(studentIn);
-
-        System.out.println(studentOut.getName());
-        System.out.println(studentOut.getGrade());
-        System.out.println(studentOut.getScore());
-
+        final Giants reciever = this;
+        HashMap<String, Runnable> m = new HashMap<String, Runnable> {{
+            put("a", new Runnable() {
+                @Override
+                public void run() {
+                    reciever.a();
+                }
+            });
+        }};
+        m.get("a").run();
     }
 }
