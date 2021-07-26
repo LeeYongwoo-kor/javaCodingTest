@@ -12,5 +12,8 @@ public class MainClass {
         } else {
             System.out.println("ERROR");
         }
+
+        abc obj = new abc();
+        obj.data = "HI";
     }
 }
